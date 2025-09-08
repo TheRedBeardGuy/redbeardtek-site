@@ -1,0 +1,25 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RedBeard Blog</title>
+<link rel="stylesheet" href="https://unpkg.com/mvp.css">
+<main style="max-width:900px;margin:2rem auto">
+  <h1>RedBeard Blog</h1>
+  <ul id="post-list"></ul>
+  <p><a href="../">← Back to Home</a></p>
+</main>
+<script>
+(async ()=>{
+  try{
+    const r = await fetch('posts/manifest.json',{cache:'no-store'});
+    const files = await r.json();
+    const ul = document.getElementById('post-list');
+    if(!files.length){ ul.innerHTML = '<li>No posts yet.</li>'; return; }
+    files.forEach(f=>{
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = 'post.html?p=' + encodeURIComponent('posts/' + f);
+      a.textContent = f.replace(/\.md$/,'');
+      li.appendChild(a); ul.appendChild(li);
+    });
+  }catch(e){ document.getElementById('post-list').innerHTML='<li>Failed to load.</li>'; }
+})();
+</script>
