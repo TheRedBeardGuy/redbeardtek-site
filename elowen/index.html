@@ -5,31 +5,45 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Elowen • RedBeard</title>
   <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-  <style>main{max-width:900px;margin:2rem auto}</style>
+  <style>
+    main { max-width: 900px; margin: 2rem auto; text-align: center; }
+    img.banner { max-width: 100%; border-radius: 12px; margin-bottom: 1.5rem; }
+    .qrs { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .qrs img { width: 200px; border: 2px solid #333; border-radius: 8px; }
+    .paypal-btn { display:inline-block; margin-top:1.5rem; padding:0.75rem 1.5rem;
+                  background:#0070ba; color:#fff; font-weight:bold; border-radius:6px;
+                  text-decoration:none; }
+  </style>
 </head>
 <body>
 <header>
-  <h1>🌙 Elowen</h1>
-  <p>A fantasy series by RedBeard Technologies</p>
+  <a href="../">← Back Home</a>
 </header>
 <main>
-  <figure>
-    <img src="../assets/img/Elowen_banner.png" alt="Elowen banner" style="max-width:100%;height:auto;border-radius:12px">
-    <figcaption>Early banner art for the Elowen project.</figcaption>
-  </figure>
+  <h1>Elowen</h1>
+  <img src="../elowen_banner.png" alt="Elowen Banner" class="banner"/>
 
-  <section>
-    <h2>Kickstarter</h2>
-    <p>We’re preparing our Kickstarter to fund the first book, illustrations, and a limited collector’s print run.</p>
-    <ul>
-      <li>✅ Draft outline complete</li>
-      <li>🎨 Sample art in progress</li>
-      <li>📦 Reward tiers sketched</li>
-    </ul>
-    <!-- TODO: Replace the # with your actual Kickstarter preview or campaign link -->
-    <p><a class="button" href="#" target="_blank" rel="noopener">View the Kickstarter page (coming soon)</a></p>
-    <p><a href="../">← Back to Home</a></p>
-  </section>
+  <p>
+    Support the <strong>Elowen Kickstarter</strong> and help bring this project to life.<br>
+    Every contribution makes a difference!
+  </p>
+
+  <a href="https://www.paypal.com/ncp/payment/EQ35WCPW4A4Y6" 
+     class="paypal-btn" target="_blank" rel="noopener">
+    Support via PayPal
+  </a>
+
+  <div class="qrs">
+    <div>
+      <img src="../qr_cashapp.png" alt="CashApp QR"/>
+      <p>CashApp</p>
+    </div>
+    <div>
+      <img src="../qr_venmo.png" alt="Venmo QR"/>
+      <p>Venmo</p>
+    </div>
+  </div>
 </main>
 </body>
 </html>
+
