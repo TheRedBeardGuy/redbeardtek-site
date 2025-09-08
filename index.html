@@ -1,86 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>RedBeard Technologies</title>
-  <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-  <style>
-    main{max-width:900px;margin:2rem auto}
-    .qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1rem}
-    .qr-grid img{width:100%;height:auto;border:1px solid #ccc;border-radius:8px;padding:.5rem;background:#fff}
-    .paypal-btn{display:inline-block;padding:.6rem 1rem;border-radius:8px;border:1px solid #1e3a8a}
-    .paypal-btn:hover{background:#1e3a8a;color:#fff}
-  </style>
-</head>
-<body>
-<header>
-  <h1>⚔️ RedBeard Technologies</h1>
-  <p>Projects, outreach, and updates.</p>
-</header>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>RedBeardTek</title>
+<link rel="stylesheet" href="https://unpkg.com/mvp.css">
+<style>main{max-width:900px;margin:2rem auto}</style>
+</head><body>
+<header><h1>RedBeardTek</h1><p>Deployed via GitLab Pages</p></header>
 <main>
-  <p>Welcome aboard! Explore our work:</p>
-  <ul>
-    <li><a href="blog/">📜 Blog</a></li>
-    <li><a href="elowen/">📖 Elowen Project</a></li>
-  </ul>
-
-  <section>
-    <h2>Support the Project</h2>
-    <!-- TODO: Replace PAYPAL_URL with your actual PayPal link (PayPal.me or hosted donation button URL) -->
-    <p><a class="paypal-btn" href="PAYPAL_URL" target="_blank" rel="noopener">💙 Donate via PayPal</a></p>
-  </section>
-
-  <section>
-    <h2>Quick Links (QR codes)</h2>
-    <p>Scan a code to jump to RedBeard links.</p>
-    <div id="qr" class="qr-grid"></div>
-  </section>
-
-  <p><small>Tip: replace <code>PAYPAL_URL</code> with your real PayPal link.</small></p>
+  <p><a href="blog/">📓 Read the Blog</a> • <a href="elowen/">👑 Elowen</a></p>
 </main>
-
-<script>
-/* Show any files that exist matching common QR filenames,
-   and also anything listed in assets/img/manifest.json if you add one. */
-const guesses = [
-  'qr_paypal.png','qr_donate.png','qr_youtube.png','qr_github.png',
-  'qr_blog.png','qr_kickstarter.png','qr_site.png'
-];
-
-async function loadManifest() {
-  try{
-    const r = await fetch('assets/img/manifest.json',{cache:'no-store'});
-    if(r.ok){ return await r.json(); }
-  }catch(e){}
-  return [];
-}
-
-function tryImage(path){
-  return new Promise(resolve=>{
-    const img = new Image();
-    img.onload = ()=>resolve(path);
-    img.onerror = ()=>resolve(null);
-    img.src = path;
-  });
-}
-
-(async ()=>{
-  const container = document.getElementById('qr');
-  const fromManifest = (await loadManifest()).map(s=>`assets/img/${s}`);
-  const candidates = [...new Set([...fromManifest, ...guesses.map(g=>`assets/img/${g}`)])];
-  const checks = await Promise.all(candidates.map(tryImage));
-  checks.filter(Boolean).forEach(src=>{
-    const fig = document.createElement('figure');
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = src.split('/').pop();
-    const cap = document.createElement('figcaption');
-    cap.textContent = img.alt;
-    fig.appendChild(img); fig.appendChild(cap);
-    container.appendChild(fig);
-  });
-})();
-</script>
-</body>
-</html>
+</body></html>
