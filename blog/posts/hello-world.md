@@ -1,2 +1,3 @@
-# Hello, world
-Clean rebuild is live. Next up: Elowen page, affiliates, and YouTube embed.
+# Hello World
+
+If you can read this, the blog routing works.

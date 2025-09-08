@@ -1,14 +1,22 @@
-<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Post • RedBeard Blog</title>
 <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-<main id="content" style="max-width:900px;margin:2rem auto">Loading…</main>
+<style>main{max-width:900px;margin:2rem auto} pre{overflow:auto}</style>
+</head><body>
+<header><a href="./">← Back to Blog</a></header>
+<main id="content">Loading…</main>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
-const p = new URLSearchParams(location.search).get('p');
+const params = new URLSearchParams(location.search);
+const path = params.get('p');
 (async ()=>{
   const el = document.getElementById('content');
-  if(!p || !p.endsWith('.md')){ el.textContent='Invalid post.'; return; }
-  const r = await fetch(p); if(!r.ok){ el.textContent='Post not found.'; return; }
-  el.innerHTML = marked.parse(await r.text());
+  if(!path || !path.endsWith('.md')){ el.textContent='Invalid post.'; return; }
+  const res = await fetch(path);
+  if(!res.ok){ el.textContent='Post not found.'; return; }
+  const md = await res.text();
+  el.innerHTML = marked.parse(md);
 })();
 </script>
+</body></html>
