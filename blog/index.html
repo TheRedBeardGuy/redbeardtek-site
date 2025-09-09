@@ -1,31 +1,30 @@
 <!doctype html><html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RedBeard Blog</title>
 <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-<style>main{max-width:900px;margin:2rem auto} pre{white-space:pre-wrap}</style>
+<style>main{max-width:900px;margin:2rem auto}</style>
 </head><body>
-<header><h1>RedBeard Blog</h1><p>Updates, builds, and behind-the-scenes.</p></header>
+<header><p><a href="../">← Back to Home</a></p><h1>RedBeard Blog</h1></header>
 <main>
   <section id="posts"><h2>Published Posts</h2><ul id="post-list"></ul></section>
-  <hr/>
-  <p><a href="../">← Back to Home</a></p>
 </main>
 <script>
 (async ()=>{
   try{
     const res = await fetch('posts/manifest.json',{cache:'no-store'});
-    if(!res.ok) throw new Error();
     const files = await res.json();
     const ul = document.getElementById('post-list');
-    if(!files.length){ ul.innerHTML = '<li>No posts yet.</li>'; return; }
-    files.forEach(f=>{
+    if(!files.length){ ul.innerHTML='<li>No posts yet.</li>'; return; }
+    for(const f of files){
       const li=document.createElement('li');
       const a=document.createElement('a');
-      a.href = "post.html?p=" + encodeURIComponent('posts/' + f);
-      a.textContent = f.replace(/\.md$/,'');
+      a.href='post.html?p='+encodeURIComponent('posts/'+f);
+      a.textContent=f.replace(/\.md$/,'');
       li.appendChild(a); ul.appendChild(li);
-    });
-  }catch{ document.getElementById('posts').insertAdjacentHTML('beforeend','<p>Failed to load posts.</p>'); }
+    }
+  }catch(e){
+    document.getElementById('posts').insertAdjacentHTML('beforeend','<p>Failed to load posts.</p>');
+  }
 })();
 </script>
 </body></html>
