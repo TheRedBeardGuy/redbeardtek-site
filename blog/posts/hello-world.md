@@ -1,3 +1,3 @@
-# Hello World
+# Hello, world
 
-If you can read this, the blog routing works.
+Quick smoke test post. If you can read this, the blog works.
