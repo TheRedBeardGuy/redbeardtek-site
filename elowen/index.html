@@ -40,26 +40,25 @@
     <h2>Rewards</h2>
     <ul>
       <li><strong>$10 — Whisper of the Woods</strong> · Digital Edition (PDF/ePub)</li>
-      <li><strong>$15 — Song of the Stars</strong> · Digital Edition + Digital Poster/Wallpaper Pack</li>
-      <li><strong>$25 — Leafbound Chronicle</strong> · Paperback + Digital Poster/Wallpaper Pack</li>
-      <li><strong>$40 — Crown of Twilight</strong> · Hardcover + Digital Poster/Wallpaper Pack</li>
-      <li><strong>$75 — Queen’s Oath (Signed Special Edition)</strong> · Signed & numbered hardcover + Poster/Wallpaper Pack</li>
-      <li><strong>$100 — Patron of Elowen (Ultra-Limited)</strong> · Name a character or location + Signed Special Edition</li>
+      <li><strong>$15 — Song of the Stars</strong> · Digital Edition (PDF/ePub)</li>
+      <li><strong>$25 — Leafbound Chronicle</strong> · Digital Edition (PDF/ePub) + Digital Poster &amp; Wallpaper pack + Paperback Book</li>
+      <li><strong>$40 — Crown of Twilight</strong> · Digital Edition (PDF/ePub) + Digital Poster &amp; Wallpaper pack + Hardcover Book</li>
+      <li><strong>$75 — Queen’s Oath (Signed Special Edition)</strong> · Digital Edition (PDF/ePub) + Digital Poster &amp; Wallpaper pack + Signed &amp; numbered Special Edition Hardback</li>
     </ul>
   </section>
 
   <section>
     <h2>Add-ons</h2>
     <ul>
-      <li>Digital art pack (character &amp; world concept art)</li>
-      <li><strong>Printed Art Book — $20 add-on</strong></li>
+      <li><strong>Printed Art Book — $20 add-on</strong> · Printed Artwork Book</li>
+      <li><strong>Patron of Elowen — $100 add-on (Ultra-Limited)</strong> · Name a person or place in the book (limited)</li>
     </ul>
   </section>
 </main>
 
 <script>
 // If ks_url.txt exists with a URL, swap the CTA to a Kickstarter button.
-fetch('ks_url.txt').then(r=>r.ok?r.text():Promise.reject()).then(u=>{
+fetch('ks_url.txt?v=' + Date.now()).then(r=>r.ok?r.text():Promise.reject()).then(u=>{
   u=(u||'').trim();
   if(!u) return;
   const cta = document.getElementById('cta-area');
