@@ -1,12 +1,97 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RedBeardTek</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RedBeard — Fantasy Projects & ELOWEN</title>
 <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-<style>main{max-width:900px;margin:2rem auto} img{max-width:100%;height:auto}</style>
-</head><body>
-<header><h1>RedBeardTek</h1><p>Builds, projects, and original fiction.</p></header>
+<link rel="stylesheet" href="assets/home.css">
+<meta name="description" content="RedBeard Creative — projects, writing, and ELOWEN: A Fantasy Romance Saga.">
+<link rel="canonical" href="https://www.kickstarter.com/projects/theredbeardguy/elowen-love-power-and-destiny">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">RedBeard</a>
+    <ul>
+      <li><a href="/elowen/">Elowen</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul>
+  </nav>
+</header>
+
 <main>
-  <p><a href="blog/">📚 Read the Blog</a></p>
-  <p><a href="elowen/">👑 Explore “Elowen”</a></p>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>ELOWEN</h1>
+    <p class="subtitle">A Fantasy Romance Saga — Love. Power. Destiny.</p>
+    <div class="cta-row">
+      <a class="button gold" href="https://www.kickstarter.com/projects/theredbeardguy/elowen-love-power-and-destiny" rel="noopener">Back on Kickstarter</a>
+      <a class="button" href="/elowen/">Explore the Project</a>
+    </div>
+  </section>
+
+  <!-- CONTENT GRID -->
+  <section class="grid">
+    <!-- Left: Feature Elowen -->
+    <article class="card">
+      <h2>Featured: Elowen</h2>
+      <figure>
+        <img id="elowen-hero" alt="Elowen — campaign banner">
+        <figcaption style="font-size:.9rem;color:#666">Consistent look, safe text placement, emblem watermark.</figcaption>
+      </figure>
+      <p><strong>Elowen</strong> follows an elven queen torn between duty and a destiny-bound love — courtly intrigue, ancient magic, and a world on the brink. Perfect for readers who enjoy slow-burn romance and high-fantasy stakes.</p>
+      <p>
+        <a class="button gold" href="https://www.kickstarter.com/projects/theredbeardguy/elowen-love-power-and-destiny" rel="noopener">Back the Campaign</a>
+        <a class="button" href="/elowen/">Read More</a>
+      </p>
+    </article>
+
+    <!-- Right: About / Latest -->
+    <aside class="card dark">
+      <h3>About RedBeard</h3>
+      <p>Stories, worlds, and tools. I ship polished, reader-first releases and keep builds simple: static site, consistent art, and clear calls-to-action.</p>
+      <h3>Latest</h3>
+      <ul class="list-clean">
+        <li>✅ Kickstarter approved — Elowen goes live</li>
+        <li>🎨 New banner set (web + socials) deployed</li>
+        <li>🛠 Site polish and social link cleanup</li>
+      </ul>
+      <p><a class="button" href="/blog/">Visit the blog</a></p>
+    </aside>
+  </section>
 </main>
-</body></html>
+
+<footer>
+  <hr>
+  <p style="text-align:center;margin:.5rem 0">Follow</p>
+  <p class="links">
+    <a href="https://twitter.com/YOUR_HANDLE" target="_blank" rel="noopener">Twitter/X</a>
+    <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/YOUR_PROFILE" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://ko-fi.com/YOUR_PAGE" target="_blank" rel="noopener">Ko-fi</a>
+    <a href="https://www.buymeacoffee.com/YOUR_PAGE" target="_blank" rel="noopener">BMAC</a>
+    <a href="https://www.patreon.com/YOUR_PAGE" target="_blank" rel="noopener">Patreon</a>
+  </p>
+  <p style="text-align:center;opacity:.7">© <span id="yr"></span> RedBeard Creative</p>
+</footer>
+
+<script>
+// pick whichever banner exists: /elowen/elowen_banner.png OR /elowen_banner.png
+(function(){
+  const img = document.getElementById('elowen-hero');
+  const tryPaths = ['/elowen/elowen_banner.png','/elowen_banner.png','/social/kickstarter_2560x1440.png'];
+  (function tryNext(i){
+    if(i>=tryPaths.length){ img.remove(); return; }
+    const url = tryPaths[i] + '?v=' + Date.now();
+    fetch(url, {method:'HEAD'}).then(r=>{
+      if(r.ok){ img.src = tryPaths[i]; }
+      else { tryNext(i+1); }
+    }).catch(()=>tryNext(i+1));
+  })(0);
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
