@@ -14,7 +14,13 @@
     const res = await fetch('posts/manifest.json',{cache:'no-store'});
     const files = await res.json();
     const ul = document.getElementById('post-list');
-    if(!files.length){ ul.innerHTML='<li>No posts yet.</li>'; return; }
+    if(!files.length){ ul.innerHTML='<h2>Blog Posts</h2>
+<ul>
+  <li><a href="uconsole-review.html">Clockwork uConsole Review (LTE, 4GB)</a></li>
+  <li><a href="comet-browser.html">Comet Browser Review & Tips</a></li>
+  <li><a href="chatgpt5-tips.html">ChatGPT-5 Tips, Hacks & Mistakes to Avoid</a></li>
+</ul>
+'; return; }
     for(const f of files){
       const li=document.createElement('li');
       const a=document.createElement('a');
