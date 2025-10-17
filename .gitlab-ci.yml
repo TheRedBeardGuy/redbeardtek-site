@@ -1,17 +1,14 @@
-stages: [deploy]
+stages:
+  - deploy
 
 pages:
   stage: deploy
   image: alpine:3.20
   script:
     - mkdir -p public
-    # copy folders if they exist
-    - [ -d assets ] && cp -a assets public/ || true
-    - [ -d services ] && cp -a services public/ || true
-    # copy top-level html files
-    - find . -maxdepth 1 -type f -name '*.html' -exec cp -a {} public/ \;
-    # keep custom domain if present
-    - [ -f public/CNAME ] && echo "CNAME present: $(cat public/CNAME)" || true
+    - apk add --no-cache bash
+    - bash -lc 'shopt -s dotglob; for p in *; do case "$p" in .git|.github|.gitlab-ci.yml) continue;; *) cp -a "$p" public/ ;; esac; done'
+    - test -f public/CNAME && echo "CNAME: $(cat public/CNAME)" || true
   artifacts:
     paths:
       - public
