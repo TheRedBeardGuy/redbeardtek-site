@@ -1,0 +1,16 @@
+stages: [deploy]
+
+pages:
+  image: alpine:3.19
+  stage: deploy
+  script:
+    - rm -rf public && mkdir public
+    # copy top-level files (exclude CI file)
+    - find . -maxdepth 1 -type f ! -name ".gitlab-ci.yml" -exec cp -t public {} +
+    # copy top-level folders except .git and public
+    - find . -maxdepth 1 -type d ! -name "." ! -name ".git" ! -name "public" -exec cp -r {} public/ \;
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "site-polish"'

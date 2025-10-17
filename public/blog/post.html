@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Post • RedBeard Blog</title>
+<link rel="stylesheet" href="https://unpkg.com/mvp.css">
+<style>main{max-width:900px;margin:2rem auto} pre{white-space:pre-wrap}</style>
+</head><body>
+<header><p><a href="./">← Back to Blog</a></p></header>
+<main id="content">Loading…</main>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+const params=new URLSearchParams(location.search); const path=params.get('p');
+(async()=>{
+  if(!path||!path.endsWith('.md')){content.textContent='Invalid post.';return;}
+  const res=await fetch(path); if(!res.ok){content.textContent='Post not found.';return;}
+  const md=await res.text(); content.innerHTML=marked.parse(md);
+})();
+</script>
+</body></html>
