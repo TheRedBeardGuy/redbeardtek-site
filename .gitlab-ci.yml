@@ -1,9 +1,17 @@
 stages: [deploy]
+
 pages:
   stage: deploy
+  image: alpine:3.20
   script:
     - mkdir -p public
-    - rsync -a --delete --exclude='.git' --exclude='public' ./ public/
+    # copy folders if they exist
+    - [ -d assets ] && cp -a assets public/ || true
+    - [ -d services ] && cp -a services public/ || true
+    # copy top-level html files
+    - find . -maxdepth 1 -type f -name '*.html' -exec cp -a {} public/ \;
+    # keep custom domain if present
+    - [ -f public/CNAME ] && echo "CNAME present: $(cat public/CNAME)" || true
   artifacts:
     paths:
       - public
