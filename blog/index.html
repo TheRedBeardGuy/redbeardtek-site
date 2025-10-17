@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RedBeard Blog</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/mvp.css">
+<link rel="stylesheet" href="../assets/home.css">
+<meta name="description" content="RedBeard blog — reviews, tips, and build logs.">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">RedBeard</a>
+    <ul>
+      <li><a href="/elowen/">Elowen</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main style="max-width: 900px; margin: 2rem auto;">
+  <h1>📝 Blog</h1>
+  <p>Reviews, tips, and build logs.</p>
+
+  <h2>Posts</h2>
+  <ul>
+    <li><a href="uconsole-review.html">Clockwork uConsole Review (LTE, 4GB)</a></li>
+    <li><a href="comet-browser.html">Comet Browser Review & Tips</a></li>
+    <li><a href="chatgpt5-tips.html">ChatGPT-5 Tips, Hacks & Mistakes to Avoid</a></li>
+  </ul>
+
+  <p style="opacity:.7;font-size:.9rem">Last updated: <span id="updated"></span></p>
+</main>
+
+<footer>
+  <hr>
+  <p style="text-align:center;opacity:.7">© <span id="yr"></span> RedBeard Creative</p>
+</footer>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('updated').textContent = new Date().toLocaleString();
+</script>
+</body>
+</html>
+
