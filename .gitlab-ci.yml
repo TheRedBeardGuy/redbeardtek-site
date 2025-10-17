@@ -7,8 +7,12 @@ pages:
   script:
     - mkdir -p public
     - apk add --no-cache bash
-    - bash -lc 'shopt -s dotglob; for p in *; do case "$p" in .git|.github|.gitlab-ci.yml) continue;; *) cp -a "$p" public/ ;; esac; done'
-    - test -f public/CNAME && echo "CNAME: $(cat public/CNAME)" || true
+    - >-
+      bash -lc 'shopt -s dotglob; for p in *; do
+      case "$p" in .git|.github|.gitlab-ci.yml) continue;;
+      *) cp -a "$p" public/ ;; esac; done'
+    - >-
+      if [ -f public/CNAME ]; then echo "CNAME: $(cat public/CNAME)"; else echo "No CNAME"; fi
   artifacts:
     paths:
       - public
