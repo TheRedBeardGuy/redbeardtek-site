@@ -66,3 +66,21 @@ h2{font-weight:700}
 
 /* Buttons a touch bolder for the new font */
 .btn{font-weight:600}
+
+/* --- Contrast polish for small text & subheadline --- */
+:root{
+  --fg-strong:#f2f5f7;
+  --fg-med:#cfd6de;
+}
+.sub,.trust,.small,.nav a{color:var(--fg-med)}
+.card p{color:var(--fg-med)}
+/* Hero subheadline on busy image */
+.hero.hero-viking .sub{
+  color:var(--fg-strong);
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.45),
+    0 6px 14px rgba(0,0,0,.40);
+  opacity:.95;
+}
+/* Improve link readability on dark bg */
+.nav a:hover{color:var(--fg-strong);text-decoration:underline}
