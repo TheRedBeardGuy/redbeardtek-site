@@ -27,11 +27,11 @@ This is my **first official hardware review**, the start of a series covering ha
 ## Build & Design
 The uConsole’s **metal case** gives it a rugged, almost industrial feel. It’s dense and tough — this isn’t a plastic toy. The **keyboard** is compact but usable; I was surprised how comfortable it felt even for longer typing sessions.
 
-![uConsole front view](images/uconsole_front.jpg)
+![uConsole front view](/blog/images/uconsole_front.jpg)
 
-![uConsole rugged metal case](images/uconsole_case.jpg)
+![uConsole rugged metal case](/blog/images/uconsole_case.jpg)
 
-![uConsole back panel](images/uconsole_back.jpg)
+![uConsole back panel](/blog/images/uconsole_back.jpg)
 
 ---
 
@@ -40,11 +40,11 @@ Assembly is straightforward but rewarding. You follow the steps, bolt it togethe
 
 Taking off the back cover reveals the **dual 18650 battery bay** and connectors for the **WiFi and LTE antennas**. This transparency is part of the appeal — the hardware isn’t sealed away, it’s yours to tinker with.
 
-![uConsole side ports](images/uconsole_ports.jpg)
+![uConsole side ports](/blog/images/uconsole_ports.jpg)
 
-![uConsole top view (power + antenna)](images/uconsole_top.jpg)
+![uConsole top view (power + antenna)](/blog/images/uconsole_top.jpg)
 
-![uConsole internals](images/uconsole_internals.jpg)
+![uConsole internals](/blog/images/uconsole_internals.jpg)
 
 ---
 
@@ -52,14 +52,14 @@ Taking off the back cover reveals the **dual 18650 battery bay** and connectors 
 **Keyboard:** responsive, well-spaced for its size, and practical for terminal work.  
 **Trackball:** the weak point. It functions, but it’s frustrating for precision and long sessions. I’d love to see an alternate pointing option in future revisions.
 
-![uConsole trackball close-up](images/uconsole_trackball.jpg)
+![uConsole trackball close-up](/blog/images/uconsole_trackball.jpg)
 
 ---
 
 ## Power & Batteries
 The uConsole uses **two 18650 cells**. Access requires removing the back panel with bolts — not hot-swap friendly in the field, but at least user-replaceable.
 
-![uConsole battery bay](images/uconsole_battery.jpg)
+![uConsole battery bay](/blog/images/uconsole_battery.jpg)
 
 ---
 
